@@ -1,0 +1,51 @@
+const {Router}= require("express");
+
+//ACORDATE DE IMPORTAR LOS CONTROLLERS
+const gameRouter= Router();
+
+//GET/videojuegos
+gameRouter.get("/", async(req, res)=>{
+    try {
+        const allGames= await gameController(); 
+        res.status(200).json({data:allGames})
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+});
+
+//GET/videojuegos/name?=...
+gameRouter.get("/search/:name", async(req, res)=>{
+    try {
+        const {searchGameByName}= req.query
+        const foundGame= await gameSearchController(searchGameByName); 
+        res.status(200).json({data:foundGame})
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+});
+
+//GET/videojuegos/:ID videojuegos
+gameRouter.get("/:id", async(req, res)=>{
+    try {
+        const {id}= req.params.id
+        const foundGameById= await gameSearchByIdController(id); 
+        res.status(200).json({data:foundGameById})
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+});
+
+//POST/videojuegos
+gameRouter.post("/", async(req, res)=>{
+    try {
+        const {name, img, platforms, description, releseDate, rating, genres}= req.body;
+        const newGame= await newGameController({name, img, platforms, description, releseDate, rating, genres});
+        res.status(200).json({message:"Game added succesfuly", newGame}); 
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+
+});
+
+
+module.exports=gameRouter;
