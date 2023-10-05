@@ -1,9 +1,10 @@
 const {Router}= require("express");
+const {genreController}=require("../controllers/genreControllers/genreController")
 //ACORDATE DE IMPORTAR EL CONTROLLER
 const genresRouter= Router();
 
 //GET/genres
-genresRouter.get("/genres", async (req, res)=>{
+genresRouter.get("/", async (req, res)=>{
         try {
             const allGenre= await genreController(); 
             res.status(200).json({data:allGenre})
