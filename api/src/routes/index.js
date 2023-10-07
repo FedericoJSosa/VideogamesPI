@@ -8,8 +8,8 @@ const genresRouter= require("./genres-rt")
 const router = Router();
 router.use("/genres", genresRouter);
 router.use("/videogames", gameRouter);
-router.use("*", (res, req)=>{
-    res.statusCode(404).json({error:"Not found chinguenguencha 2"})
+router.use("*", (req, res)=>{
+    res.status(404).json({error:"Not found chinguenguencha 2"})
 })
 
 
