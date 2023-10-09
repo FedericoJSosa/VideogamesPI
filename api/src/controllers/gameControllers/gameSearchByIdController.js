@@ -8,9 +8,9 @@ const gameSearchByIdController= async(id)=>{
         let dataBaseGame=[];
 
         if (await Videogame.count() !== 0){
-            dataBaseGame= await Videogame.find({
+            dataBaseGame= await Videogame.findOne({
                 where: {
-                    id: {[Op.like]: id}
+                    id: id
                 },
                 include:{
                     model: Genre,
