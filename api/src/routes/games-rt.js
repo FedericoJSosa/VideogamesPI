@@ -1,8 +1,8 @@
 const {Router}= require("express");
 const gameController= require("../controllers/gameControllers/gameController");
-const {gameSearchController}= require("../controllers/gameControllers/gameSearchController");
-const {gameSearchByIdController}= require("../controllers/gameControllers/gameSearchByIdController");
-const {newGameController}= require("../controllers/gameControllers/newGameController");
+const gameSearchController= require("../controllers/gameControllers/gameSearchController");
+const gameSearchByIdController= require("../controllers/gameControllers/gameSearchByIdController");
+const newGameController= require("../controllers/gameControllers/newGameController");
 
 
 //ACORDATE DE IMPORTAR LOS CONTROLLERS
