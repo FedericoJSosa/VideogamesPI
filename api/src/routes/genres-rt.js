@@ -1,5 +1,5 @@
 const {Router}= require("express");
-const {genreController}=require("../controllers/genreControllers/genreController")
+const genreController=require("../controllers/genreControllers/genreController")
 //ACORDATE DE IMPORTAR EL CONTROLLER
 const genresRouter= Router();
 
