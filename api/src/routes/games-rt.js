@@ -23,9 +23,9 @@ gameRouter.get("/search", async(req, res)=>{
     try {
         const {searchGameByName}= req.query
         const foundGame= await gameSearchController(searchGameByName); 
-        res.status(200).json({data:foundGame})
+         res.status(200).json({data:foundGame}) 
     } catch (error) {
-        res.status(500).json({error: error.message})
+        res.status(500).json({error: error.message}) 
     }
 });
 
@@ -45,7 +45,8 @@ gameRouter.get("/:id", async(req, res)=>{
 gameRouter.post("/", async(req, res)=>{
     try {
         const {name, img, platforms, description, releseDate, rating, genres}= req.body;
-        const newGame= await newGameController({name, img, platforms, description, releseDate, rating, genres});
+        const gameData={name, img, platforms, description, releseDate, rating, genres};
+        const newGame= await newGameController(gameData);
         res.status(200).json({message:"Game added succesfuly", newGame}); 
     } catch (error) {
         res.status(400).json({error: error.message})

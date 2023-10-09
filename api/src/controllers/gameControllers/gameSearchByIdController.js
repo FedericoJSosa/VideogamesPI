@@ -1,13 +1,13 @@
 const axios= require("axios");
-const {Videogame}= require("../../models/Videogame");
-const {Genre}= require("../../models/Genres");
+const {Videogame}= require("../../db");
+const {Genre}= require("../../db");
 
 const gameSearchByIdController= async(id)=>{
     try {
         
            let dataBaseGame=[];
          
-         if (Videogame){
+         if (await Videogame.count() > 0){
             dataBaseGame= await Videogame.findOne({
                 where: {
                     id: id

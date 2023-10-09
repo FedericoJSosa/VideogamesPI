@@ -1,6 +1,7 @@
-const {Videogame} = require("/Users/Federico/Desktop/PI-Videogames-main/api/src/models/Videogame"); 
+const {Videogame} = require("../../db"); 
 
 const newGameController= async(gameInfo)=>{
+
 const newGame= await Videogame.create(gameInfo);
 return newGame;
 }

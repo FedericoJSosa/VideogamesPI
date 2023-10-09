@@ -1,5 +1,5 @@
 const axios= require("axios");
-const {Genre}= require("/Users/Federico/Desktop/PI-Videogames-main/api/src/models/Genres");
+const {Genre}= require("../../db");
 
 const genreController= async()=>{    
     if (await Genre.count() === 0){
