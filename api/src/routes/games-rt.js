@@ -32,7 +32,8 @@ gameRouter.get("/search", async(req, res)=>{
 //GET/videojuegos/:ID videojuegos
 gameRouter.get("/:id", async(req, res)=>{
     try {
-        const {id}= req.params.id
+        const {id}= req.params;
+      /*   return id */
         const foundGameById= await gameSearchByIdController(id); 
         res.status(200).json({data:foundGameById})
     } catch (error) {
