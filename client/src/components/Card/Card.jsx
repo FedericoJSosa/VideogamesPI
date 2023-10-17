@@ -1,13 +1,15 @@
-const Card = (key, id, img, name, genre, platforms, description, releseDate, rating)=>{
+import { Link } from "react-router-dom";
+
+const Card = ({id, img, name, genres, platforms, description, releaseDate, rating})=>{
     return(
         <div> 
-            <img src={img} alt="Not found"/>
-            <h3>{name}</h3>
-            <h3>{genre}</h3>
-            <h3>{platforms}</h3>
-            <h3>{description}</h3>
-            <h3>{releseDate}</h3>
-            <h3>{rating}</h3>
+            <Link to={`/detail/${id}`}><img src={img} alt="Not found"/></Link>
+            <h2>Name: {name}</h2>
+            <p>Genres: {genres}</p>  
+            <p>Platforms: {platforms}</p>
+            <p>Description: {description}</p> no lo tira
+            <p>Release Date: {releaseDate}</p>  no lo tira
+            <p>Rating: {rating}</p>
         </div>
     )
 }
