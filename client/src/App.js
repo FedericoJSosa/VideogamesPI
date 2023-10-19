@@ -3,18 +3,26 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import Cards from "./components/Cards/Cards";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import LandingPage from './views/LandingPage';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
 function App() {
 
   return (
     <div className="App">
-      <SearchBar />
       <Router>
-          <Route exact path="/" component={Cards} /> 
-          <Route exact path="/form" component={Form} />
-          <Route exact path="/detail/:id" component={Detail} />   
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route path= "/home">
+            <div>
+              <SearchBar />
+              <Route exact path="/home" component={Cards} /> 
+              <Route exact path="/home/form" component={Form} />
+              <Route exact path="/home/detail/:id" component={Detail} />   
+            </div>
+          </Route>
+        </Switch>
       </Router>
     </div>
   );

@@ -1,7 +1,8 @@
-import { GET_VID, ADD_VID } from "./actionTypes";
+import { GET_VID, ADD_VID, GET_VID_BY_ID } from "./actionTypes";
 
 const initialST= {
-    videogames: []
+    videogames: [],
+    videogamesId: []
 };
 
 
@@ -12,6 +13,11 @@ const reducer= (state= initialST, {type, payload}) =>{
                 ...state,
                 videogames: payload
             };
+        case GET_VID_BY_ID:
+                return {
+                    ...state,
+                videogamesId: payload
+                };
         case ADD_VID:
             return {
                 ...state,

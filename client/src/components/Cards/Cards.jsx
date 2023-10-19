@@ -14,7 +14,7 @@ const Cards = ()=>{
     return(
         <div>
             
-            {videogames.map((vigame,)=>{
+            {videogames.map((vigame)=>{
             return(
                 <div>
                     <Card
@@ -22,7 +22,7 @@ const Cards = ()=>{
                     id={vigame.id}
                     img={vigame.background_image}
                     name={vigame.name}
-                    genres={vigame.genres.map(genres => genres.name).join(",")}
+                    genres={vigame.genres.map(genres => genres.name).join(", ")}
                     platforms={vigame.platforms.map(platform => platform.platform.name).join(", ")}
                     description={vigame.description}
                     releaseDate={vigame.releaseDate}
