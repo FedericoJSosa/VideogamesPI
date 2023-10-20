@@ -13,12 +13,10 @@ const Detail = () => {
         dispatch(getVideogamesById(id))
     }, [id]);
     
-    const videogamesIdAux=videogamesId
+   
 
     if (videogamesId.name) {
-        console.log("hola1")
-        console.log("hola", videogamesIdAux)
-        console.log("hola2")
+    
         return(
             < div >
             

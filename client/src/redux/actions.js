@@ -34,7 +34,6 @@ export const getVideogamesById= (id)=>{
   }
 }
 
-
 export const addVid= (newGame)=>{
     return {
         type: ADD_VID,
