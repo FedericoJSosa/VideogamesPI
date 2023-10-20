@@ -4,10 +4,12 @@ import Cards from "./components/Cards/Cards";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import LandingPage from './views/LandingPage';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 function App() {
+
+  /* const location= useLocation(); */
 
   return (
     <div className="App">

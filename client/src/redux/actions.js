@@ -1,4 +1,4 @@
-import { GET_VID, ADD_VID, GET_VID_BY_ID } from "./actionTypes";
+import { GET_VID, NEW_VID, GET_VID_BY_ID } from "./actionTypes";
 import axios from "axios";
 
 const URL="http://localhost:3001/videogames";
@@ -34,9 +34,9 @@ export const getVideogamesById= (id)=>{
   }
 }
 
-export const addVid= (newGame)=>{
+export const addVid= (payload)=>{
     return {
-        type: ADD_VID,
-         payload: newGame
+        type: NEW_VID,
+        payload: payload
     }
 }

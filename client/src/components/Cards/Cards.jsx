@@ -13,7 +13,6 @@ const Cards = ()=>{
 
     return(
         <div>
-            
             {videogames.map((vigame)=>{
             return(
                 <div>
