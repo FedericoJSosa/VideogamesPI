@@ -30,6 +30,7 @@ const Form = ({add})=>{
         event.preventDefault();
         add(newGame);
         setGuardado(true);
+        setNewGame(initLocalState);
     }
 
 

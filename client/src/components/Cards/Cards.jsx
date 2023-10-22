@@ -11,6 +11,9 @@ const Cards = ()=>{
         dispatch(getVideogames())
     },[]);
 
+    if (!videogames || videogames.length === 0) {
+        return <div>Loading...</div>
+    }
     return(
         <div>
             {videogames.map((vigame)=>{
@@ -18,7 +21,7 @@ const Cards = ()=>{
                 <div>
                     <Card
                     key={vigame.id}
-                    id={vigame.id}
+                    id={vigame.id} 
                     img={vigame.background_image}
                     name={vigame.name}
                     genres={vigame.genres.map(genres => genres.name).join(", ")}

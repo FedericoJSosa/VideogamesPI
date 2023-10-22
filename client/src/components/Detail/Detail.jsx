@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { getVideogamesById } from "../../redux/actions";
+import { clean, getVideogamesById } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -10,16 +10,17 @@ const Detail = () => {
     const videogamesId = useSelector((state) => state.videogamesId)
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getVideogamesById(id))
+        dispatch(getVideogamesById(id));
+        return ()=>{
+            dispatch(clean())
+        }
     }, [id]);
     
-   
 
     if (videogamesId.name) {
     
         return(
             < div >
-            
                 <img src={videogamesId.background_image} alt="Not found" />
                 <h2>Name: {videogamesId.name}</h2>
                 <p>Genres: {videogamesId.genres.map(genres => genres.name).join(", ")}</p>
@@ -32,12 +33,10 @@ const Detail = () => {
             </div >
         )
     } else {
-    return <p> CARGANDO </p>
+    return <p> Loading... </p>
     }
 }
 
 
 export default Detail;
 
-/* .map(genres => genres.name).join(", ")
-.map(platforms => platforms.platform.name) */
