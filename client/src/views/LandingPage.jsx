@@ -1,14 +1,16 @@
+
+
 import { Link } from "react-router-dom";
-import "./LandingStyle.css";
+import style from "./Landing.module.css";
 
-const LandingPage = ()=>{
-    return(
-        <div className="landing-page"> Bienvenido a la LandingPage
-        <br></br><br></br><br></br><br></br><br></br>
-        <Link to="/home"><button>Home</button></Link> 
+const LandingPage = () => {
+    return (
+        <div className={style.background}>
+            <Link to="/home" className={style.button}>
+                Gaming encyclopedia
+            </Link>
         </div>
-    )
-}
-
+    );
+};
 
 export default LandingPage;

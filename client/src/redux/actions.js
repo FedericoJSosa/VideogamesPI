@@ -8,7 +8,6 @@ export const getVideogames= ()=>{
         return axios(URL)
         .then((response)=>{
           const data= response.data.data.flat();
-          console.log(data); 
             if(data){
               dispatch({
                 type: GET_VID,

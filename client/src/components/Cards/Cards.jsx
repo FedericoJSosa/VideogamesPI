@@ -1,26 +1,42 @@
+import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getVideogames } from "../../redux/actions";
 import Card from "../Card/Card";
+import style from "./Cards.module.css"
 
 const Cards = ()=>{
     const dispatch= useDispatch();
     const videogames= useSelector(state=>state.videogames);
 
+    const [currentPage, setCurrentPage] = React.useState(1);
+
+    const indexOfLastCard = currentPage * 15;
+    const indexOfFirstCard = indexOfLastCard - 15;
+    const currentCards = videogames.slice(indexOfFirstCard, indexOfLastCard);
+
     useEffect(()=>{
         dispatch(getVideogames())
     },[]);
 
-    if (!videogames || videogames.length === 0) {
+    const handleNext = () => {
+        setCurrentPage(currentPage + 1);
+      };
+
+      const handlePrev = () => {
+        setCurrentPage(currentPage - 1);
+      };
+
+    if (!currentCards || currentCards.length === 0) {
         return <div>Loading...</div>
     }
+
     return(
-        <div>
-            {videogames.map((vigame)=>{
+        <div className={style.container}>
+            {currentCards.map((vigame)=>{
             return(
-                <div>
+                <div key={vigame.id}>
                     <Card
-                    key={vigame.id}
                     id={vigame.id} 
                     img={vigame.background_image}
                     name={vigame.name}
@@ -33,6 +49,14 @@ const Cards = ()=>{
                 </div>
                 )})
             }
+            <div className={style.button}>
+                <button onClick={handlePrev} disabled={currentPage === 1}>
+                    Anterior
+                </button>
+                <button onClick={handleNext} disabled={indexOfLastCard >= videogames.length}>
+                    Siguiente
+                </button>
+            </div>
         </div>
     )
 }

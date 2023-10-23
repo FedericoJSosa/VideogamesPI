@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: Verdana;
+    background: linear-gradient(to bottom, rgb(0, 0, 0), #3498db); 
+    
+}
+
+.button {
+    margin-top: 40px;
+}
+
+

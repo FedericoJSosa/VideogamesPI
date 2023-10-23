@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import style from "./Card.module.css";
 
 const Card = ({id, img, name, genres})=>{
     return(
-        <div> 
+        <div className={style.cardContainer}> 
             <Link to={`/home/detail/${id}`}><img src={img} alt="Not found"/></Link>
             <h2>Name: {name}</h2>
             <p>Genres: {genres}</p>  
