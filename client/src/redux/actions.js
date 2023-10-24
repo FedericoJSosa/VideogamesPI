@@ -48,12 +48,16 @@ export const getVideogamesByName=(name)=>{
 }
 };
 
-
 export const addVid= (payload)=>{
-    return {
+  return (dispatch)=>{
+    return axios.post(URL, payload)
+    .then((response)=>{
+      dispatch({
         type: NEW_VID,
-        payload: payload
-    }
+        payload: response.data
+      })
+    })
+  }
 };
 
 export const clean= ()=>{
