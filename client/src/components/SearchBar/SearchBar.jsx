@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { getVideogamesByName} from "../../redux/actions";
+import { Link } from "react-router-dom";
+import style from "./SearchBar.module.css";
 
 
 
@@ -25,15 +27,16 @@ import { getVideogamesByName} from "../../redux/actions";
     };
 
 return (
-    <div>
-            <button onClick={handleHomeClick}>Home</button> 
+    <div className={style.backgroundbutton}>
+            <button onClick={handleHomeClick} className={style.button}>Home</button> 
             <input
             type="text"
             placeholder="Buscar por nombre"
             value={searchGame}
             onChange={handleInputChange}
             />
-            <button onClick={handleSearch}>Buscar</button>
+            <button onClick={handleSearch} className={style.button}>Buscar</button>
+            <Link to="/home/form"><button className={style.button}>Crear</button></Link>
         </div>
       );
     };

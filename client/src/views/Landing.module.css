@@ -2,6 +2,7 @@
 
 
  .background {
+    
     background-image: url('./fondo.jpg');
     background-position: center;
     height: 100vh; 
@@ -24,10 +25,10 @@
     transition: background-color 0.7s ease;
     border-radius: 10px;
     font-family: Verdana;
-    
+    margin: 5px;
 }
 
 .button:hover {
-    background-color: #2980b9;
+    background-color: #2a6287;
 }
 

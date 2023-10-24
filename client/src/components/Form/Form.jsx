@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { connect } from "react-redux";
 import {addVid} from "../../redux/actions"
+import style from "./Form.module.css"
 
 const Form = ({add})=>{
     
@@ -35,9 +36,9 @@ const Form = ({add})=>{
 
 
     return(
-        <div>
+        <div className={style.container}>
 
-            <form onSubmit={handleOnSubmit}>
+            <form onSubmit={handleOnSubmit} className={style.containerform}>
                 <div>
                     <label htmlFor="name">Name:  </label>
                     <input type="text" name="name" value={newGame.name} onChange={handleOnChange}/> 
@@ -67,10 +68,9 @@ const Form = ({add})=>{
                     <input type="text" name= "genres" value={newGame.genres}onChange={handleOnChange}/> 
                 </div>
                 <br></br><br></br>
-                <button type="submit">Guardar</button>{guardado && <p>Personaje guardado correctamente!!</p>}
+                <button type="submit" className={style.button}>Guardar</button>{guardado && <p>Personaje guardado correctamente!!</p>}
                 <br></br><br></br>
             </form>
-            <Link to="/home"><button>Home</button></Link> 
         </div>
     )
 }

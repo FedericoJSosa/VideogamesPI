@@ -32,7 +32,8 @@ const Cards = ()=>{
     }
 
     return(
-        <div className={style.container}>
+        <div>
+            <div className={style.container}>
             {currentCards.map((vigame)=>{
             return(
                 <div key={vigame.id}>
@@ -49,14 +50,16 @@ const Cards = ()=>{
                 </div>
                 )})
             }
-            <div className={style.button}>
-                <button onClick={handlePrev} disabled={currentPage === 1}>
+            </div>
+            <div className={style.backgroundbutton}>
+                <button onClick={handlePrev} disabled={currentPage === 1} className={style.button}>
                     Anterior
                 </button>
-                <button onClick={handleNext} disabled={indexOfLastCard >= videogames.length}>
+                <button onClick={handleNext} disabled={indexOfLastCard >= videogames.length} className={style.button}>
                     Siguiente
                 </button>
             </div>
+       
         </div>
     )
 }
