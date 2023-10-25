@@ -4,6 +4,9 @@ import {addVid} from "../../redux/actions"
 import style from "./Form.module.css"
 
 const Form = ({add})=>{
+
+
+    //hacer las validaciones
     
     const initLocalState= 
     {
@@ -82,3 +85,31 @@ const Form = ({add})=>{
 
 export default connect(null, mapDispatchToProps) (Form);
 
+/*   name: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+    },
+    description:{
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    platforms:{
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    img:{
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false
+    },
+    releaseDate:{
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    rating:{
+      type: DataTypes.INTEGER,
+      allowNull: false}
+
+  });
+}; */

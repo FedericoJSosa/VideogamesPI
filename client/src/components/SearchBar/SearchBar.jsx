@@ -13,11 +13,13 @@ import style from "./SearchBar.module.css";
     
       const handleInputChange = (event) => {
         setSearchGame(event.target.value);
+    
       };
     
       const handleSearch = () => {
         if (searchGame.trim() !== "") {
             dispatch(getVideogamesByName(searchGame));
+            setSearchGame("");
         }
       };
     

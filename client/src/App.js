@@ -9,8 +9,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
 
-  /* const location= useLocation(); */
-
   return (
     <div className="App">
       <Router>

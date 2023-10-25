@@ -1,12 +1,19 @@
 const axios= require("axios");
-
+const {Videogame}=require("../../db");
+const {PASSWORD}=process.env;
 
 const gameController= async ()=>{
-    const URL= "https://api.rawg.io/api/games?key=c04b4a64ff0440188fe0868ada142f37&page=";
+
     const request=[];
+    const URL= `https://api.rawg.io/api/games?key=${PASSWORD}&page=`;
+
+    if (await Videogame.count() > 0 ){
+        request= await Videogame.findAll();
+   };   
+
 
     for (let i=1 ; i<=5 ; i++){
-        request.push(axios.get("https://api.rawg.io/api/games?key=c04b4a64ff0440188fe0868ada142f37&page=" + i));
+        request.push(axios.get(`${URL}` + i));
     }
 
     

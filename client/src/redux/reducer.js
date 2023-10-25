@@ -1,9 +1,9 @@
-import { GET_VID, NEW_VID, GET_VID_BY_ID, GET_VID_BY_NAME, CLEAN } from "./actionTypes";
+import { GET_VID, NEW_VID, GET_VID_BY_ID, GET_VID_BY_NAME, CLEAN, ERROR_OCCURRED } from "./actionTypes";
 
 const initialST= {
     videogames: [],
     videogamesId: [],
-    newGame: []
+    newGame: [],
 };
 
 
@@ -24,7 +24,6 @@ const reducer= (state= initialST, {type, payload}) =>{
         case GET_VID_BY_NAME:
                 return{
                     ...state,
-                    
                 videogames: payload
                 };
 
@@ -37,6 +36,10 @@ const reducer= (state= initialST, {type, payload}) =>{
             return{
                 ...state,
                 videogamesId: []
+            };
+        case ERROR_OCCURRED:
+            return{
+                errorMessage:"A ocurrido un error. Por favor, inténtalo de nuevo."
             }
         default:
             return {...state};

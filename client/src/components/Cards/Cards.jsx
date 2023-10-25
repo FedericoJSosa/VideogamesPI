@@ -11,6 +11,7 @@ const Cards = ()=>{
 
     const [currentPage, setCurrentPage] = React.useState(1);
 
+    console.log(videogames);
     const indexOfLastCard = currentPage * 15;
     const indexOfFirstCard = indexOfLastCard - 15;
     const currentCards = videogames.slice(indexOfFirstCard, indexOfLastCard);
@@ -30,7 +31,7 @@ const Cards = ()=>{
     if (!currentCards || currentCards.length === 0) {
         return <div>Loading...</div>
     }
-
+    console.log(currentCards);
     return(
         <div>
             <div className={style.container}>
@@ -67,3 +68,4 @@ const Cards = ()=>{
 
 
 export default Cards;
+

@@ -1,4 +1,4 @@
-import { GET_VID, NEW_VID, GET_VID_BY_ID, GET_VID_BY_NAME, CLEAN } from "./actionTypes";
+import { GET_VID, NEW_VID, GET_VID_BY_ID, GET_VID_BY_NAME, CLEAN, ERROR_OCCURRED } from "./actionTypes";
 import axios from "axios";
 
 const URL="http://localhost:3001/videogames";
@@ -15,8 +15,15 @@ export const getVideogames= ()=>{
               })
               }
         })
+        .catch(() => {
+          dispatch({
+            type: ERROR_OCCURRED,
+          });
+        });
+       
     }
 };
+
 
 export const getVideogamesById= (id)=>{
   return (dispatch)=>{
@@ -30,6 +37,12 @@ export const getVideogamesById= (id)=>{
             })
             }
       })
+      .catch(() => {
+        dispatch({
+          type: ERROR_OCCURRED,
+        });
+      });
+  
   }
 };
 
@@ -45,6 +58,12 @@ export const getVideogamesByName=(name)=>{
           })
           }
     })
+    .catch(() => {
+      dispatch({
+        type: ERROR_OCCURRED,
+      });
+    });
+   
 }
 };
 
@@ -57,6 +76,11 @@ export const addVid= (payload)=>{
         payload: response.data
       })
     })
+    .catch(() => {
+      dispatch({
+        type: ERROR_OCCURRED,
+      });
+    });
   }
 };
 
