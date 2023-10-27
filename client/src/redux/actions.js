@@ -1,4 +1,4 @@
-import { GET_VID, NEW_VID, GET_VID_BY_ID, GET_VID_BY_NAME, CLEAN, ERROR_OCCURRED } from "./actionTypes";
+import { GET_VID, NEW_VID, GET_VID_BY_ID, GET_VID_BY_NAME, CLEAN, ERROR_OCCURRED, GET_GENRE } from "./actionTypes";
 import axios from "axios";
 
 const URL="http://localhost:3001/videogames";
@@ -22,6 +22,28 @@ export const getVideogames= ()=>{
         });
        
     }
+};
+
+
+export const getGenres= ()=>{
+  return (dispatch)=>{
+      return axios("http://localhost:3001/genres")
+      .then((response)=>{
+        const data= response.data
+          if(data){
+            dispatch({
+              type: GET_GENRE,
+              payload: data
+            })
+            }
+      })
+      .catch(() => {
+        dispatch({
+          type: ERROR_OCCURRED,
+        });
+      });
+     
+  }
 };
 
 
