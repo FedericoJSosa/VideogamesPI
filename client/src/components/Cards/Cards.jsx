@@ -12,8 +12,8 @@ const Cards = () => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [selectGenre, setGenre] = React.useState("all");
   const [selectOrigin, setOrigin] = React.useState("all");
-  const [orderType, setOrderType] = React.useState("name"); // "name" o "rating"
-  const [orderDirection, setOrderDirection] = React.useState("asc"); // "asc" o "desc"
+  const [orderType, setOrderType] = React.useState("name"); 
+  const [orderDirection, setOrderDirection] = React.useState("asc"); 
 
   useEffect(() => {
     dispatch(getVideogames());
@@ -30,7 +30,6 @@ const Cards = () => {
       } else if (orderType === "rating") {
         return orderDirection === "asc" ? a.rating - b.rating : b.rating - a.rating;
       }
-      return 0;
     });
   };
 
@@ -79,7 +78,7 @@ const Cards = () => {
     <div>
       {/* Filtros */}
       <div>
-        <select value={selectGenre} onChange={(e) => setGenre(e.target.value)}>
+        <select value={selectGenre} onChange={(event) => setGenre(event.target.value)}>
           <option value="all">Género</option>
           {allGenres.data.map((genre) => (
             <option key={genre.id} value={genre.name}>
@@ -87,7 +86,7 @@ const Cards = () => {
             </option>
           ))}
         </select>
-        <select value={selectOrigin} onChange={(e) => setOrigin(e.target.value)}>
+        <select value={selectOrigin} onChange={(event) => setOrigin(event.target.value)}>
           <option value="all">Todos</option>
           <option value="api">API</option>
           <option value="db">DB</option>
@@ -96,11 +95,11 @@ const Cards = () => {
 
       {/* Select de Ordenamiento */}
       <div>
-        <select value={orderType} onChange={(e) => setOrderType(e.target.value)}>
+        <select value={orderType} onChange={(event) => setOrderType(event.target.value)}>
           <option value="name">Nombre (A-Z)</option>
           <option value="rating">Rating</option>
         </select>
-        <select value={orderDirection} onChange={(e) => setOrderDirection(e.target.value)}>
+        <select value={orderDirection} onChange={(event) => setOrderDirection(event.target.value)}>
           <option value="asc">Ascendente</option>
           <option value="desc">Descendente</option>
         </select>
