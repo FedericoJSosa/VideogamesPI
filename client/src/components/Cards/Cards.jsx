@@ -9,6 +9,8 @@ const Cards = () => {
   const videogames = useSelector((state) => state.videogames);
   const allGenres = useSelector((state) => state.allGenres);
 
+  console.log(videogames);
+
   const [currentPage, setCurrentPage] = React.useState(1);
   const [selectGenre, setGenre] = React.useState("all");
   const [selectOrigin, setOrigin] = React.useState("all");
@@ -34,6 +36,7 @@ const Cards = () => {
   };
 
   const filteredVideogames = useMemo(() => {
+    console.log(videogames);
     let filteredGames = [...videogames];
 
     if (selectGenre !== "all") {
@@ -113,8 +116,8 @@ const Cards = () => {
               id={vigame.id}
               img={vigame.background_image}
               name={vigame.name}
-              genres={vigame.genres.map((genre) => genre.name).join(", ")}
-              platforms={vigame.platforms.map((platform) => platform.platform.name).join(", ")}
+              genres={Array.isArray(vigame.genres) ? vigame.genres.map((genre) => genre.name).join(", ") : vigame.genres}            
+              platforms={Array.isArray(vigame.platforms) ? vigame.platforms.map((platforms) => platforms.name).join(", ") : vigame.platforms}
               description={vigame.description}
               releaseDate={vigame.releaseDate}
               rating={vigame.rating}

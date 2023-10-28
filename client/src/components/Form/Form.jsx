@@ -3,11 +3,10 @@ import { connect } from "react-redux";
 import {addVid} from "../../redux/actions"
 import style from "./Form.module.css"
 
+
+
+
 const Form = ({add})=>{
-
-
-    //hacer las validaciones
-    
     const initLocalState= 
     {
         name:"",
@@ -29,12 +28,32 @@ const Form = ({add})=>{
         setNewGame({...newGame, [prop]:value});
     }
 
-    const handleOnSubmit=(event)=>{
+    const handleOnSubmit = (event) => {
         event.preventDefault();
-        add(newGame);
-        setGuardado(true);
-        setNewGame(initLocalState);
-    }
+        const { name, description, platforms, image, releaseDate, rating } = newGame;
+    
+        
+        if (!name || !description || !platforms || !image || !releaseDate || !rating) {
+           alert("Todos los campos son obligatorios");
+        } if (name.length > 255) {
+            alert("El nombre no puede tener más de 255 caracteres");
+        } if (description.length > 1000) {
+            alert("La descripción no puede tener más de 1000 caracteres");
+        } if (platforms.length > 255) {
+            alert("La plataforma no puede tener más de 255 caracteres");
+        } if (image.length > 255) {
+            alert("La URL de la imagen no puede tener más de 255 caracteres");
+        }  if (isNaN(Date.parse(releaseDate))) {
+            alert("Fecha de lanzamiento no válida");
+        } if (isNaN(parseInt(rating))) {
+            alert("El rating debe ser un número entero válido");
+        }else {
+            add(newGame);
+            setGuardado(true);
+            setNewGame(initLocalState);
+        }
+    };
+    
 
 
     return(
@@ -79,37 +98,9 @@ const Form = ({add})=>{
 
     const mapDispatchToProps= (dispatch)=>{
         return{
-            add: videogame=> dispatch(addVid(videogame))
+            add: videogame=> dispatch(addVid(videogame))   
         }
     }
 
 export default connect(null, mapDispatchToProps) (Form);
 
-/*   name: {
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false,
-    },
-    description:{
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    platforms:{
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    img:{
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false
-    },
-    releaseDate:{
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    rating:{
-      type: DataTypes.INTEGER,
-      allowNull: false}
-
-  });
-}; */

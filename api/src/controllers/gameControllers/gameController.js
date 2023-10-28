@@ -1,30 +1,36 @@
-const axios= require("axios");
-const {Videogame}=require("../../db");
-const {PASSWORD}=process.env;
+const axios = require("axios");
+const { Videogame } = require("../../db");
+const { PASSWORD } = process.env;
 
-const gameController= async ()=>{
+const gameController = async () => {
+  try {
+    const request = await Videogame.findAll();
+    let requestCombined = [];
 
-    const request=[];
-    const URL= `https://api.rawg.io/api/games?key=${PASSWORD}&page=`;
-
-    if (await Videogame.count() > 0 ){
-        request= await Videogame.findAll();
-   };   
-
-
-    for (let i=1 ; i<=5 ; i++){
-        request.push(axios.get(`${URL}` + i));
+    if (request.length > 0) {
+      requestCombined = request;
     }
 
-    
-    return Promise.all(request)
-    .then((response)=>{ return response.map((obj)=>obj.data.results)})
-    .catch(error=>{
-        throw new Error("Error al obtener datos de la API externa.")
-    });
-}
+    const apiRequests = [];
+    const URL= `https://api.rawg.io/api/games?key=${PASSWORD}&page=`;
 
 
-module.exports=gameController; 
+    for (let i = 1; i <= 5; i++) {
+      apiRequests.push(axios.get(`${URL}+${i}`));
+    }
+
+    const apiResponses = await Promise.all(apiRequests);
+    const apiResults = apiResponses.map((response) => response.data.results);
+
+     requestCombined = [...requestCombined, ...apiResults];
+    console.log(requestCombined); 
+
+    return apiResults;
+  } catch (error) {
+    throw new Error("Error al obtener datos.");
+  }
+};
+
+module.exports = gameController;
 
 

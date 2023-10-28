@@ -44,8 +44,8 @@ gameRouter.get("/:id", async(req, res)=>{
 //POST/videojuegos
 gameRouter.post("/", async(req, res)=>{
     try {
-        const {name, img, platforms, description, releaseDate, rating, genres}= req.body;
-        const gameData={name, img, platforms, description, releaseDate, rating, genres};
+        const {name, image, platforms, description, releaseDate, rating, genres}= req.body;
+        const gameData={name, image, platforms, description, releaseDate, rating, genres};
         const newGame= await newGameController(gameData);
         res.status(200).json({message:"Game added succesfuly", newGame}); 
     } catch (error) {
