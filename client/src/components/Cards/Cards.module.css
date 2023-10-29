@@ -28,5 +28,14 @@
     background-color: #2a6287;
 }
 
+.backgroundfilters{
+    background-color: rgba(36, 37, 47, 0.927);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: Verdana;
+}
+
+
 
 

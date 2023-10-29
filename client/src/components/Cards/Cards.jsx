@@ -79,33 +79,35 @@ const Cards = () => {
 
   return (
     <div>
-      {/* Filtros */}
-      <div>
-        <select value={selectGenre} onChange={(event) => setGenre(event.target.value)}>
-          <option value="all">Género</option>
-          {allGenres.data.map((genre) => (
-            <option key={genre.id} value={genre.name}>
-              {genre.name}
-            </option>
-          ))}
-        </select>
-        <select value={selectOrigin} onChange={(event) => setOrigin(event.target.value)}>
-          <option value="all">Todos</option>
-          <option value="api">API</option>
-          <option value="db">DB</option>
-        </select>
-      </div>
+      <div className={style.backgroundfilters} >
+        {/* Filtros */}
+        <div>
+          <select className={style.button} value={selectGenre} onChange={(event) => setGenre(event.target.value)}>
+            <option value="all">Género</option>
+            {allGenres.data.map((genre) => (
+              <option key={genre.id} value={genre.name}>
+                {genre.name}
+              </option>
+            ))}
+          </select>
+          <select className={style.button} value={selectOrigin} onChange={(event) => setOrigin(event.target.value)}>
+            <option value="all">Todos</option>
+            <option value="api">API</option>
+            <option value="db">DB</option>
+          </select>
+        </div>
 
-      {/* Select de Ordenamiento */}
-      <div>
-        <select value={orderType} onChange={(event) => setOrderType(event.target.value)}>
-          <option value="name">Nombre (A-Z)</option>
-          <option value="rating">Rating</option>
-        </select>
-        <select value={orderDirection} onChange={(event) => setOrderDirection(event.target.value)}>
-          <option value="asc">Ascendente</option>
-          <option value="desc">Descendente</option>
-        </select>
+        {/* Select de Ordenamiento */}
+        <div>
+          <select className={style.button} value={orderType} onChange={(event) => setOrderType(event.target.value)}>
+            <option value="name">Nombre (A-Z)</option>
+            <option value="rating">Rating</option>
+          </select>
+          <select className={style.button} value={orderDirection} onChange={(event) => setOrderDirection(event.target.value)}>
+            <option value="asc">Ascendente</option>
+            <option value="desc">Descendente</option>
+          </select>
+        </div>
       </div>
 
       {/* Tarjetas */}
