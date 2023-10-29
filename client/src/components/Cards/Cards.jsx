@@ -108,7 +108,7 @@ const Cards = () => {
         </select>
       </div>
 
-      {/* Tarjetas de Videojuegos */}
+      {/* Tarjetas */}
       <div className={style.container}>
         {currentCards.map((vigame) => (
           <div key={vigame.id}>
@@ -126,7 +126,7 @@ const Cards = () => {
         ))}
       </div>
 
-      {/* Botones de Paginación */}
+      {/* Paginación */}
       <div className={style.backgroundbutton}>
         <button onClick={handlePrev} disabled={currentPage === 1} className={style.button}>
           Anterior
