@@ -93,7 +93,6 @@ export const addVid= (payload)=>{
   return (dispatch)=>{
     return axios.post(URL, payload)
     .then((response)=>{
-      console.log(response.data);
       dispatch({
         type: NEW_VID,
         payload: response.data

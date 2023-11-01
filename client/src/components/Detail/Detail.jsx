@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { clean, getVideogamesById } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import style from "./Detail.module.css"
 
 const Detail = () => {
@@ -17,7 +16,6 @@ const Detail = () => {
         }
     }, [id]);
     
-
     if (videogamesId.name) {
     
         return(

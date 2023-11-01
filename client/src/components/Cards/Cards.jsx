@@ -9,7 +9,6 @@ const Cards = () => {
   const videogames = useSelector((state) => state.videogames);
   const allGenres = useSelector((state) => state.allGenres);
 
-  console.log(videogames);
 
   const [currentPage, setCurrentPage] = React.useState(1);
   const [selectGenre, setGenre] = React.useState("all");
@@ -36,7 +35,7 @@ const Cards = () => {
   };
 
   const filteredVideogames = useMemo(() => {
-    console.log(videogames);
+
     let filteredGames = [...videogames];
 
     if (selectGenre !== "all") {

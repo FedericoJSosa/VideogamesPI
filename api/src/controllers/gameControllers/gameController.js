@@ -23,7 +23,6 @@ const gameController = async () => {
     const apiResults = apiResponses.map((response) => response.data.results);
 
      requestCombined = [...requestCombined, ...apiResults];
-    console.log(requestCombined); 
 
     return apiResults;
   } catch (error) {
