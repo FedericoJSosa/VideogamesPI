@@ -1,15 +1,27 @@
+.background{
+    background: linear-gradient(to bottom, rgb(0, 0, 0), #3498db); 
+    background: cover;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     font-family: Verdana;
-    background: linear-gradient(to bottom, rgb(0, 0, 0), #3498db); 
-    
 }
 
 .backgroundbutton{
     background-color: rgba(36, 37, 47, 0.927);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    box-sizing: border-box;
 }
+    
 .button {
     background-color: #3498db;
     color: white;

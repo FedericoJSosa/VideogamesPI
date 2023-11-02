@@ -77,9 +77,8 @@ const Cards = () => {
   }
 
   return (
-    <div>
+    <div className={style.background}>
       <div className={style.backgroundfilters} >
-        {/* Filtros */}
         <div>
           <select className={style.button} value={selectGenre} onChange={(event) => setGenre(event.target.value)}>
             <option value="all">Género</option>
@@ -90,13 +89,13 @@ const Cards = () => {
             ))}
           </select>
           <select className={style.button} value={selectOrigin} onChange={(event) => setOrigin(event.target.value)}>
-            <option value="all">Todos</option>
+            <option value="all">Origen</option>
             <option value="api">API</option>
             <option value="db">DB</option>
           </select>
         </div>
 
-        {/* Select de Ordenamiento */}
+
         <div>
           <select className={style.button} value={orderType} onChange={(event) => setOrderType(event.target.value)}>
             <option value="name">Nombre (A-Z)</option>
@@ -109,7 +108,7 @@ const Cards = () => {
         </div>
       </div>
 
-      {/* Tarjetas */}
+
       <div className={style.container}>
         {currentCards.map((vigame) => (
           <div key={vigame.id}>
@@ -127,7 +126,7 @@ const Cards = () => {
         ))}
       </div>
 
-      {/* Paginación */}
+
       <div className={style.backgroundbutton}>
         <button onClick={handlePrev} disabled={currentPage === 1} className={style.button}>
           Anterior

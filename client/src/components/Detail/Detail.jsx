@@ -15,7 +15,7 @@ const Detail = () => {
             dispatch(clean())
         }
     }, [id]);
-    
+
     if (videogamesId.name) {
     
         return(
