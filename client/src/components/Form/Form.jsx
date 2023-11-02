@@ -27,26 +27,26 @@ const Form = ({add})=>{
         let value= event.target.value;
         let error= "";
         
-        if (prop === "name" && value.length >1){
-            error= "El nombre no puede tener mas de 1 caracteres"
+        if (prop === "name" && value.length >20){
+            error= "El nombre no puede tener mas de 20 caracteres"
         }
-        if (prop === "image" && value.length >1){
-            error= "La imagen no puede tener mas de 1 caracteres"
+        if (prop === "image" && value.length >150){
+            error= "La imagen no puede tener mas de 150 caracteres"
         }
-        if (prop === "description" && value.length >1){
-            error= "La descripcion no puede tener mas de 1 caracteres"
+        if (prop === "description" && value.length >200){
+            error= "La descripcion no puede tener mas de 200 caracteres"
         }
-        if (prop === "platforms" && value.length >1){
-            error= "Las plataformas no pueden tener mas de 1 caracteres"
+        if (prop === "platforms" && value.length >40){
+            error= "Las plataformas no pueden tener mas de 40 caracteres"
         }
-        if (prop === "releasedate" &&  !(/^\d{4}-\d{2}-\d{2}$/).test(value)){
+        if (prop === "releasedate" &&  !/^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/.test(value)){
             error= "La fecha debe ser valida"
         }
         if (prop === "rating" && isNaN(parseInt(value))){     
             error= "Debe ser un numero valido"
         }
-        if (prop === "genres" && value.length >1){
-            error= "Los generos no pueden tener mas de 1 caracteres"
+        if (prop === "genres" && value.length >20){
+            error= "Los generos no pueden tener mas de 20 caracteres"
         }
        
         setErrors({ ...errors, [prop]: error });
