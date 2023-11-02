@@ -109,7 +109,7 @@ const Form = ({add})=>{
                     {errors.genres && <div className={style.error}>{errors.genres}</div>} 
                 </div>
                 <br></br><br></br>
-                <button type="submit" className={style.button}>Guardar</button>{guardado && <p>Personaje guardado correctamente!!</p>}
+                <button type="submit" className={style.button}>Guardar</button>{guardado && <p className={style.p}>Personaje guardado correctamente!!</p>}
                 <br></br><br></br>
             </form>
         </div>
