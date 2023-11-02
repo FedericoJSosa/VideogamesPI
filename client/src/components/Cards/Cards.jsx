@@ -35,7 +35,7 @@ const Cards = () => {
   };
 
   const filteredVideogames = useMemo(() => {
-
+  
     let filteredGames = [...videogames];
 
     if (selectGenre !== "all") {
