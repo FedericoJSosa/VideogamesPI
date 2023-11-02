@@ -1,6 +1,6 @@
 .background{
     background: linear-gradient(to bottom, rgb(0, 0, 0), #3498db); 
-    background: cover;
+    min-height: 100vh;
 }
 
 .container {
@@ -14,7 +14,6 @@
     background-color: rgba(36, 37, 47, 0.927);
     position: fixed;
     bottom: 0;
-    left: 0;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -22,6 +21,7 @@
     box-sizing: border-box;
 }
     
+
 .button {
     background-color: #3498db;
     color: white;
